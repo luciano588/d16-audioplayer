@@ -39,9 +39,20 @@ export function Home() {
 	};
 
 	const handlePlayClick = () => {
-		player.current.play();
-		setPlaying(true);
+		if (src !== "") {
+			player.current.play();
+			setPlaying(true);
+		} else {
+			setTimeout(() => {
+				player.current.play();
+				setPlaying(true);
+			}, 100);
+		}
 	};
+	// const handlePlayClick = () => {
+	// 	player.current.play();
+	// 	setPlaying(true);
+	// };
 	return (
 		<div className="text-center py-3 px-1 player ">
 			<audio ref={player} src={src} />
